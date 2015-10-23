@@ -1,0 +1,53 @@
+Valgomat
+=======
+
+    Teknologi
+    =========
+
+        Backend:
+            Språk: PHP
+            Routing: Slim
+
+        Frontend: 
+            Språk: JS
+            Rammeverk: None, pure ES6
+            Minify alt
+
+    TDD everything, it must be tested.
+
+    Arkitektur
+    =========
+
+        En Quiz bør hele tiden rapportere til backend
+        hva som har blitt svart. Dette leder til at man
+        kan bruke data fra halvvferdig Valgomat-quizzer
+        uten at resten går tapt.
+
+        Spørsmål lastes ned på starten av quizzen.
+
+    Design
+    ======
+
+        Istedenfor smiley, bruk en slider hvor ansiktet morpher
+        inn i ulike states. Fordi da kan man få følelsen
+        av at det er større valgfrihet?
+
+        Valg av geografisk tilhørighet bør utvilsomt være
+        et kart. Eller eventuelt kun spør om kommune.
+
+        Komunne vil alltid peke på ett fylke.
+
+        Slider ideas:
+            http://codepen.io/321zeno/pen/nmujb
+            http://littlebigdetails.com/post/67368326403/turntablefm-the-subscription-model-has-a-slider
+            http://dglittle.github.io/smiley-slider/
+
+    Kategorier
+    =====
+
+        Miljø og ressurser
+        Arbeidsliv og næringsliv
+        Skatter og avgifter
+        Skole og oppvekst
+        Helse
+        Generelt
