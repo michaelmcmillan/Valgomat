@@ -1,0 +1,14 @@
+{
+    "name": "dagbladet/valgomat",
+    "description": "A political position quiz.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael McMillan",
+            "email": "email@michaelmcmillan.net"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "*" 
+    }
+}
