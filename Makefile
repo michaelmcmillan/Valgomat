@@ -1,7 +1,7 @@
 RUNNER="./vendor/phpunit/phpunit/phpunit"
-TEST_DIR="./test/unit/"
+TESTS="./test/"
 
 test:
-	@$(RUNNER) $(TEST_DIR)
+	@$(RUNNER) $(TESTS)
 
 .PHONY: test
