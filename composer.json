@@ -8,8 +8,9 @@
             "email": "email@michaelmcmillan.net"
         }
     ],
-    "require": {
-        "phpunit/phpunit": "*" 
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "2.*"
     },
     "autoload": {
         "psr-4": {
