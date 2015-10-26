@@ -8,13 +8,18 @@ class ElectionYear
     
     public function __construct($year = false) 
     {
-        $year = $year ? $year : $this->_getCurrentYear();
+        $year = $year ? $year : $this->getCurrentYear();
         $this->_setElectionYear($year); 
     }
 
     public function getElectionYear() 
     {
         return $this->election_year;
+    }
+
+    public function getCurrentYear() 
+    {
+         return (int) date('Y');
     }
     
     private function _isValid($election_year) 
@@ -29,10 +34,5 @@ class ElectionYear
         } else {
             throw new \InvalidArgumentException('Year must be a positive integer.'); 
         }
-    }
-
-    private function _getCurrentYear() 
-    {
-         return (int) date('Y');
     }
 }
