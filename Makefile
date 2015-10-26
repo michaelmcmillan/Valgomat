@@ -9,6 +9,6 @@ lint:
 	@$(LINTER) --standard=$(RULESET) $(CODE) 
 
 test: lint
-	@$(RUNNER) $(TESTS)
+	@$(RUNNER) $(TESTS) --colors
 
 .PHONY: test lint beautify
