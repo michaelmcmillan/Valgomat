@@ -1,7 +1,6 @@
 <?php
 use \Valgomat\Political\PoliticalSurvey as PoliticalSurvey;
 use \Valgomat\Political\Electionyear as ElectionYear;
-require_once __DIR__ . '/../vendor/autoload.php';
 
 class PoliticalSurveyTest extends PHPUnit_Framework_TestCase {
 

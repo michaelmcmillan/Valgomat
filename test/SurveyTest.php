@@ -1,7 +1,6 @@
 <?php
 use \Valgomat\Survey;
 use \Valgomat\Question;
-require __DIR__ . '/../vendor/autoload.php';
 
 class SurveyTest extends PHPUnit_Framework_TestCase {
 

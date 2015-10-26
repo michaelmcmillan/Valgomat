@@ -9,6 +9,6 @@ lint:
 	@$(LINTER) --standard=$(RULESET) $(CODE) 
 
 test: lint
-	@$(RUNNER) $(TESTS) --colors
+	@$(RUNNER) $(TESTS) --colors --include-path "./" --bootstrap "vendor/autoload.php"
 
 .PHONY: test lint beautify
