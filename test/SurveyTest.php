@@ -2,6 +2,10 @@
 use \Valgomat\Survey;
 use \Valgomat\Question;
 
+class QuestionMock extends Question {
+    public function __construct() { }
+}
+
 class SurveyTest extends PHPUnit_Framework_TestCase {
 
     public function testSurveyHasNoQuestionsByDefault() {
@@ -11,13 +15,13 @@ class SurveyTest extends PHPUnit_Framework_TestCase {
 
     public function testSurveyCanHaveQuestionsAdded() {
         $survey = new Survey();
-        $survey->addQuestion(new Question());
+        $survey->addQuestion(new QuestionMock());
         $this->assertCount(1, $survey->getQuestions());
     }
 
     public function testSurveyCanHaveMultipleQuestionsAdded() {
         $survey = new Survey();
-        $survey->addQuestions(array(new Question(), new Question()));
+        $survey->addQuestions(array(new QuestionMock(), new QuestionMock()));
         $this->assertCount(2, $survey->getQuestions());
     }
 
