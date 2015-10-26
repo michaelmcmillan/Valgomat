@@ -1,26 +1,21 @@
 <?php
 require_once 'Survey.php';
+require_once 'VotingYear.php';
 
 class PoliticalSurvey extends Survey {
 
     protected $voting_year;
 
     public function __construct() {
+        $this->voting_year = new VotingYear();
         parent::__construct();
     }
 
-    private function isValidVotingYear($voting_year) {
-        return is_int($voting_year) && $voting_year > 0;
-    }
-
     public function setVotingYear($voting_year) {
-        if ($this->isValidVotingYear($voting_year))
-            $this->voting_year = $voting_year;
-        else
-            throw new InvalidArgumentException('Voting year must be a positive integer.');
+        $this->voting_year = new VotingYear($voting_year);
     }
 
     public function getVotingYear() {
-        return isset($this->voting_year) ? $this->voting_year : date('Y');
+        return $this->voting_year->getVotingYear();
     }
 }
