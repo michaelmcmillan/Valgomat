@@ -1,5 +1,6 @@
 <?php
-require_once 'src/PoliticalSurvey/PoliticalSurvey.php';
+use \Valgomat\Political\PoliticalSurvey as PoliticalSurvey;
+require_once __DIR__ . '/../vendor/autoload.php';
 
 class PoliticalSurveyTest extends PHPUnit_Framework_TestCase {
 

@@ -1,4 +1,5 @@
 <?php
+namespace Valgomat\Political;
 
 class ElectionYear {
 
@@ -23,7 +24,7 @@ class ElectionYear {
         if ($this->isValid($year))
             $this->election_year = $year;
         else
-            throw new InvalidArgumentException('Year must be a positive integer.');
+            throw new \InvalidArgumentException('Year must be a positive integer.');
     }
 
     public function setElectionYearToCurrentYear() {

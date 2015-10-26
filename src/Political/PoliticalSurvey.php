@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/../Survey.php';
-require_once 'ElectionYear.php';
+namespace Valgomat\Political;
+use \Valgomat\Survey as Survey;
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 class PoliticalSurvey extends Survey {
 
