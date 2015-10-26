@@ -10,7 +10,7 @@ class QuestionTest extends PHPUnit_Framework_TestCase {
 
     public function testQuestionDoesNotAlterFirstCharacterIfAlreadyCapitalized()
     {
-        $text = 'Already first capitalized the first character.';
+        $text = 'Et spørsmål hvor den første bokstaven allerede er stor.';
         $question = new Question($text);
         $this->assertEquals($question->getText(), $text);
     }
