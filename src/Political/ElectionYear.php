@@ -8,11 +8,8 @@ class ElectionYear
     
     public function __construct($year = false) 
     {
-        if ($year) {
-            $this->_setElectionYear($year); 
-        } else {
-            $this->_setElectionYearToCurrentYear(); 
-        }
+        $year = $year ? $year : $this->_getCurrentYear();
+        $this->_setElectionYear($year); 
     }
 
     public function getElectionYear() 
@@ -34,8 +31,8 @@ class ElectionYear
         }
     }
 
-    private function _setElectionYearToCurrentYear() 
+    private function _getCurrentYear() 
     {
-         $this->_setElectionYear((int) date('Y'));
+         return (int) date('Y');
     }
 }
