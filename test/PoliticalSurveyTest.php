@@ -1,5 +1,5 @@
 <?php
-require_once 'src/PoliticalSurvey.php';
+require_once 'src/PoliticalSurvey/PoliticalSurvey.php';
 
 class PoliticalSurveyTest extends PHPUnit_Framework_TestCase {
 

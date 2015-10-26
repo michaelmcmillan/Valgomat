@@ -1,5 +1,5 @@
 <?php
-require_once 'Survey.php';
+require_once __DIR__ . '/../Survey.php';
 require_once 'ElectionYear.php';
 
 class PoliticalSurvey extends Survey {
