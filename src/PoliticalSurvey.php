@@ -1,21 +1,21 @@
 <?php
 require_once 'Survey.php';
-require_once 'VotingYear.php';
+require_once 'ElectionYear.php';
 
 class PoliticalSurvey extends Survey {
 
-    protected $voting_year;
+    protected $election_year;
 
     public function __construct() {
-        $this->voting_year = new VotingYear();
+        $this->election_year = new ElectionYear();
         parent::__construct();
     }
 
-    public function setVotingYear($voting_year) {
-        $this->voting_year = new VotingYear($voting_year);
+    public function setElectionYear($election_year) {
+        $this->election_year = new ElectionYear($election_year);
     }
 
-    public function getVotingYear() {
-        return $this->voting_year->getVotingYear();
+    public function getElectionYear() {
+        return $this->election_year->getElectionYear();
     }
 }
