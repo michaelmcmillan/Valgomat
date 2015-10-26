@@ -24,9 +24,7 @@ class Survey
 
     public function addQuestions(Array $questions) 
     {
-        foreach ($questions as $question) {
-            $this->addQuestion($question); 
-        }
+        array_walk($questions, array ($this, 'addQuestion'));
     }
 
 }
