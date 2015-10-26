@@ -2,7 +2,7 @@ BIN="./vendor/bin"
 CODE="./src/"
 TESTS="./test/"
 LINTER="${BIN}/phpcs"
-RULESET="${TESTS}/ruleset.xml"
+RULESET="${TESTS}/linter_ruleset.xml"
 RUNNER="${BIN}/phpunit"
 RUNNER_FLAGS=--colors --include-path "./" --bootstrap "vendor/autoload.php" --report-useless-tests --strict-coverage --strict-global-state --disallow-test-output --enforce-time-limit --disallow-todo-tests 
 
