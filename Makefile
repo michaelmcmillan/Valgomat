@@ -2,7 +2,7 @@ BIN="./vendor/bin"
 CODE="./src/"
 TESTS="./test/"
 LINTER="${BIN}/phpcs"
-RULESET="${TESTS}/linter_ruleset.xml"
+LINTER_FLAGS=--standard="${TESTS}/linter_ruleset.xml"
 IGNORE=grep -v 'Sebastian Bergmann'
 RUNNER="${BIN}/phpunit"
 RUNNER_FLAGS=--colors --include-path "./" --bootstrap "vendor/autoload.php" \
@@ -10,7 +10,7 @@ RUNNER_FLAGS=--colors --include-path "./" --bootstrap "vendor/autoload.php" \
 			 --disallow-test-output --enforce-time-limit --disallow-todo-tests 
 
 lint:
-	@$(LINTER) --standard=$(RULESET) $(CODE) 
+	@$(LINTER) $(LINTER_FLAGS) $(CODE) 
 
 test: lint
 	@$(RUNNER) $(TESTS) $(RUNNER_FLAGS) | $(IGNORE)
