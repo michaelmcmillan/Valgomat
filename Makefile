@@ -11,4 +11,8 @@ lint:
 
 test: lint
 	@$(RUNNER) $(TESTS) $(RUNNER_FLAGS) 
-.PHONY: test lint beautify
+
+install:
+	@composer install
+
+.PHONY: test lint install
