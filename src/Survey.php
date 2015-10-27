@@ -27,4 +27,19 @@ class Survey
         array_walk($questions, array ($this, 'addQuestion'));
     }
 
+    public function getQuestion($index)
+    {
+        if ($this->_isIndexWithinQuestionRange($index)) {
+            return $this->questions[$index];
+        } else {
+            throw new \OutOfBoundsException('Question does not exist.');
+        }
+    }
+
+    private function _isIndexWithinQuestionRange($question_index)
+    {
+        return is_int($question_index) &&
+               count($this->getQuestions()) >= $question_index;
+    }
+
 }
