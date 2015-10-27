@@ -1,5 +1,5 @@
 <?php
-namespace Valgomat\Political;
+namespace Valgomat\Election;
 
 class ElectionYear
 {

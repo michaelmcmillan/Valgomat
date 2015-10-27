@@ -1,6 +1,7 @@
 <?php
-namespace Valgomat\Political;
+namespace Valgomat\Election;
 use \Valgomat\Survey as Survey;
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 class PoliticalSurvey extends Survey
