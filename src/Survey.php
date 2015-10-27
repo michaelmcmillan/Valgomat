@@ -5,21 +5,21 @@ require_once __DIR__ . '/../vendor/autoload.php';
 class Survey
 {
 
-    protected $questions;
+    private $_questions;
 
     public function __construct() 
     {
-        $this->questions = array(); 
+        $this->_questions = array(); 
     }
 
     public function getQuestions() 
     {
-        return $this->questions;
+        return $this->_questions;
     }
 
     public function addQuestion(Question $question) 
     {
-        $this->questions[] = $question;
+        $this->_questions[] = $question;
     }
 
     public function addQuestions(Array $questions) 
@@ -30,7 +30,7 @@ class Survey
     public function getQuestion($index)
     {
         if ($this->_isIndexWithinQuestionRange($index)) {
-            return $this->questions[$index];
+            return $this->_questions[$index];
         } else {
             throw new \OutOfBoundsException('Question does not exist.');
         }
