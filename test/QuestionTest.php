@@ -2,10 +2,6 @@
 use \Valgomat\Question;
 use \Valgomat\Answer;
 
-class AnswerMock extends Answer {
-
-}
-
 class QuestionTest extends PHPUnit_Framework_TestCase {
 
     public function testQuestionCapitalizesFirstCharacterOfQuestionText() {
@@ -29,7 +25,8 @@ class QuestionTest extends PHPUnit_Framework_TestCase {
     public function testQuestionCanBeAnswered()
     {
         $question = new Question('Hvor fornøyd er du med Høyre?');
-        $question->answer(new AnswerMock());
+        $answer = $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
+        $question->answer($answer);
         $this->assertTrue($question->isAnswered());
     }
 
