@@ -19,7 +19,7 @@ class Survey
 
     public function addQuestion(Question $question) 
     {
-        $this->_questions[] = $question;
+        array_push($this->_questions, $question);
     }
 
     public function addQuestions(Array $questions) 
