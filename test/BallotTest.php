@@ -10,14 +10,14 @@ class BallotTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testBallotCanRetrieveQuestionAsClassProperty() {
-        $question = new QuestionMock();
+        $question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
         $answer = $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
         $ballot = new Ballot($question, $answer);
         $this->assertEquals($ballot->question, $question);
     }
 
     public function testBallotCanRetrieveAnswerAsClassProperty() {
-        $question = new QuestionMock();
+        $question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
         $answer = $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
         $ballot = new Ballot($question, $answer);
         $this->assertEquals($ballot->answer, $answer);
