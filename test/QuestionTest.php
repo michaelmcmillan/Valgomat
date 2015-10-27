@@ -3,6 +3,10 @@ use \Valgomat\Question;
 
 class QuestionTest extends PHPUnit_Framework_TestCase {
 
+    public function createAnAnswerMock() {
+        return $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
+    }
+
     public function testQuestionCapitalizesFirstCharacterOfQuestionText() {
         $question = new Question('hvor mye bryr du deg om miljøet?');
         $this->assertEquals($question->getText()[0], 'H');
@@ -24,7 +28,7 @@ class QuestionTest extends PHPUnit_Framework_TestCase {
     public function testQuestionCanBeAnswered()
     {
         $question = new Question('Hvor fornøyd er du med Høyre?');
-        $answer = $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
+        $answer = $this->createAnAnswerMock(); 
         $question->answer($answer);
         $this->assertTrue($question->isAnswered());
     }

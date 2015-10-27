@@ -1,8 +1,15 @@
 <?php
 use \Valgomat\Survey;
-use \Valgomat\Question;
 
 class SurveyTest extends PHPUnit_Framework_TestCase {
+
+    public function createAQuestionMock() {
+        return $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
+    }
+
+    public function createAnAnswerMock() {
+        return $this->getMockBuilder('\Valgomat\Answer')->getMock(); 
+    }
 
     public function testSurveyHasNoQuestionsByDefault() {
         $survey = new Survey();
@@ -11,37 +18,35 @@ class SurveyTest extends PHPUnit_Framework_TestCase {
 
     public function testSurveyCanHaveQuestionsAdded() {
         $survey = new Survey();
-        $question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
+        $question = $this->createAQuestionMock();
         $survey->addQuestion($question);
         $this->assertCount(1, $survey->getQuestions());
     }
 
     public function testSurveyCanHaveMultipleQuestionsAdded() {
         $survey = new Survey();
-        $first_question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
-        $second_question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
-        $survey->addQuestions(array($first_question, $second_question));
+        $questions = [$this->createAQuestionMock(), $this->createAQuestionMock()];
+        $survey->addQuestions($questions);
         $this->assertCount(2, $survey->getQuestions());
     }
 
     public function testSurveyDoesNotRaiseExceptionWhenAddingZeroQuestions() {
         $survey = new Survey();
-        $survey->addQuestions(array());
+        $survey->addQuestions([]);
         $this->assertCount(0, $survey->getQuestions());
     }
 
     public function testSurveyThrowsExceptionWhenGettingQuestionOutsideOfRange() {
         $this->setExpectedException('OutOfBoundsException');
         $survey = new Survey();
-        $first_question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
-        $second_question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
-        $survey->addQuestions(array($first_question, $second_question));
-        $survey->getQuestion(5);        
+        $questions = [$this->createAQuestionMock(), $this->createAQuestionMock()];
+        $survey->addQuestions($questions);
+        $survey->getQuestion(3);        
     }
 
     public function testSurveyDoesNotThrowExceptionWhenGettingQuestionWithinRange() {
         $survey = new Survey();
-        $question = $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
+        $question = $this->createAQuestionMock();
         $survey->addQuestion($question);
         $this->assertEquals($question, $survey->getQuestion(0));        
     }
