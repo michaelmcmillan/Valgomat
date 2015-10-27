@@ -1,6 +1,5 @@
 <?php
 use \Valgomat\Question;
-use \Valgomat\Answer;
 
 class QuestionTest extends PHPUnit_Framework_TestCase {
 
