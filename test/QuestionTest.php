@@ -28,9 +28,15 @@ class QuestionTest extends PHPUnit_Framework_TestCase {
 
     public function testQuestionCanBeAnswered()
     {
-        $question = new Question('Hvor fornøyd er du med Venstre?');
+        $question = new Question('Hvor fornøyd er du med Høyre?');
         $question->answer(new AnswerMock());
         $this->assertTrue($question->isAnswered());
+    }
+
+    public function testQuestionCanNotBeEmpty()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+        $question = new Question('');
     }
 
 }

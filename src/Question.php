@@ -8,7 +8,21 @@ class Question
 
     public function __construct($text)
     {
-        $this->text = ucfirst($text);
+        $this->setText($text);
+    }
+
+    public function setText($text)
+    {
+        if ($this->isValid($text)) {
+            $this->text = ucfirst($text);
+        } else {
+            throw new \InvalidArgumentException('Question can not be empty.');
+        }
+    }
+
+    public function isValid($text)
+    {
+        return strlen($text) > 0;
     }
 
     public function getText()
