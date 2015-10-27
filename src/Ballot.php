@@ -10,10 +10,10 @@ class Ballot
     {
         if (!$question or !$answer) {
             throw new \InvalidArgumentException('Missing question or answer.');
-        } else {
-            $this->_question = $question;            
-            $this->_answer = $answer;            
         }
+
+        $this->_question = $question;            
+        $this->_answer = $answer;            
     }
 
     public function __get($key)
