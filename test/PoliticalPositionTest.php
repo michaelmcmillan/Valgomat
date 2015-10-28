@@ -8,7 +8,7 @@ use \Valgomat\Answer;
 class PoliticalPositionTest extends PHPUnit_Framework_TestCase
 {
 
-    public function createQuestionWithFiveAsAgreementFactor()
+    public function createQuestionWithAgreeFactorAsFive()
     {
         $question = new Question('Alle har rett til hjelp.');
         $answer = new Answer(5, 1);
@@ -16,16 +16,68 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
         return $question;
     }
 
-    public function testCalculatorReturnsOnePartyIfOneOpinionGiven()
+    public function testPositionScoreIsOneForPartyWithOneSimilarOpinion()
     {
-        $parties = [new PoliticalParty('Sosialistisk Venstreparti')];
-        $question = $this->createQuestionWithFiveAsAgreementFactor();
+        $agreeing_party = new PoliticalParty('Sosialistisk Venstreparti');
+        $question = $this->createQuestionWithAgreeFactorAsFive();
         $opinion = new PoliticalOpinion(
             $question, [
-                5 => $parties[0]
+                5 => $agreeing_party
             ]
         );
-        $calculator = new PoliticalPosition([$opinion], $parties);
-        $this->assertCount(1, $calculator->getRanks());
+        $position = new PoliticalPosition([$opinion], [$agreeing_party]);
+        $this->assertSame($position->getScoreFor($agreeing_party), 1);
     }
+
+    public function testPositionScoreIsZeroForPartyWithNoSimilarOpinion()
+    {
+        $disagreeing_party = new PoliticalParty('Fremskrittspartiet');
+        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $opinion = new PoliticalOpinion(
+            $question, [
+                1 => $disagreeing_party
+            ]
+        );
+        $position = new PoliticalPosition([$opinion], [$disagreeing_party]);
+        $this->assertSame($position->getScoreFor($disagreeing_party), 0);
+    }
+
+    public function testPositionScoreIsZeroForPartyWithNoOpinion()
+    {
+        $disagreeing_party = new PoliticalParty('Fremskrittspartiet');
+        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $opinion = new PoliticalOpinion(
+            $question, [ ]
+        );
+        $position = new PoliticalPosition([$opinion], [$disagreeing_party]);
+        $this->assertSame($position->getScoreFor($disagreeing_party), 0);
+    }
+
+    public function testPositionScoreIsThreeForPartyWithThreeSimilarOpinions()
+    {
+        $agreeing_party = new PoliticalParty('Fremskrittspartiet');
+        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $first_opinion = new PoliticalOpinion(
+            $question, [
+                5 => $agreeing_party
+            ]
+        );
+        $second_opinion = new PoliticalOpinion(
+            $question, [
+                5 => $agreeing_party
+            ]
+        );
+        $third_opinion = new PoliticalOpinion(
+            $question, [
+                5 => $agreeing_party
+            ]
+        );
+
+        $position = new PoliticalPosition(
+            [$first_opinion, $second_opinion, $third_opinion],
+            [$agreeing_party]
+        );
+        $this->assertSame($position->getScoreFor($agreeing_party), 3);
+    }
+    
 }
