@@ -41,7 +41,7 @@ class AnswerTest extends PHPUnit_Framework_TestCase
         $answer = new Answer(1, 4);          
     }
 
-    public function testAnswerDoesNotThrowExceptionIfImportanceIsBetweenOneAndThree() 
+    public function testAnswerDoesntThrowExceptionIfImportanceIsBetweenOneAndThree() 
     {
         new Answer(1, 1); 
         new Answer(1, 2); 

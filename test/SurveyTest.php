@@ -6,12 +6,16 @@ class SurveyTest extends PHPUnit_Framework_TestCase
 
     public function createAQuestionMock() 
     {
-        return $this->getMockBuilder('\Valgomat\Question')->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder('\Valgomat\Question')
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
     public function createAnAnswerMock() 
     {
-        return $this->getMockBuilder('\Valgomat\Answer')->disableOriginalConstructor()->getMock(); 
+        return $this->getMockBuilder('\Valgomat\Answer')
+            ->disableOriginalConstructor()
+            ->getMock(); 
     }
 
     public function testSurveyHasNoQuestionsByDefault() 

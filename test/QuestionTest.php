@@ -6,7 +6,9 @@ class QuestionTest extends PHPUnit_Framework_TestCase
 
     public function createAnAnswerMock() 
     {
-        return $this->getMockBuilder('\Valgomat\Answer')->disableOriginalConstructor()->getMock(); 
+        return $this->getMockBuilder('\Valgomat\Answer')
+            ->disableOriginalConstructor()
+            ->getMock(); 
     }
 
     public function testQuestionCapitalizesFirstCharacterOfQuestionText() 
