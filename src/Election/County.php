@@ -1,6 +1,6 @@
 <?php
 
-class County 
+class County
 {
     public $name;        
     public $municipalities;
