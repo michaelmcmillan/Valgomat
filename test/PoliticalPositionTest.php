@@ -8,10 +8,10 @@ use \Valgomat\Answer;
 class PoliticalPositionTest extends PHPUnit_Framework_TestCase
 {
 
-    public function createQuestionWithAgreeFactorAsFive()
+    public function createQuestionWithAgreeFactor($agree_factor)
     {
         $question = new Question('Alle har rett til hjelp.');
-        $answer = new Answer(5, 1);
+        $answer = new Answer($agree_factor, 1);
         $question->answer($answer);
         return $question;
     }
@@ -19,7 +19,7 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
     public function testPositionScoreIsOneForPartyWithOneSimilarOpinion()
     {
         $agreeing_party = new PoliticalParty('Sosialistisk Venstreparti');
-        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $question = $this->createQuestionWithAgreeFactor(5);
         $opinion = new PoliticalOpinion(
             $question, [
                 5 => $agreeing_party
@@ -32,7 +32,7 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
     public function testPositionScoreIsZeroForPartyWithNoSimilarOpinion()
     {
         $disagreeing_party = new PoliticalParty('Fremskrittspartiet');
-        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $question = $this->createQuestionWithAgreeFactor(5);
         $opinion = new PoliticalOpinion(
             $question, [
                 1 => $disagreeing_party
@@ -45,7 +45,7 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
     public function testPositionScoreIsZeroForPartyWithNoOpinion()
     {
         $disagreeing_party = new PoliticalParty('Fremskrittspartiet');
-        $question = $this->createQuestionWithAgreeFactorAsFive();
+        $question = $this->createQuestionWithAgreeFactor(5);
         $opinion = new PoliticalOpinion(
             $question, [ ]
         );
@@ -56,20 +56,19 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
     public function testPositionScoreIsThreeForPartyWithThreeSimilarOpinions()
     {
         $agreeing_party = new PoliticalParty('Fremskrittspartiet');
-        $question = $this->createQuestionWithAgreeFactorAsFive();
         $first_opinion = new PoliticalOpinion(
-            $question, [
-                5 => $agreeing_party
+            $this->createQuestionWithAgreeFactor(3), [
+                3 => $agreeing_party
             ]
         );
         $second_opinion = new PoliticalOpinion(
-            $question, [
-                5 => $agreeing_party
+            $this->createQuestionWithAgreeFactor(1), [
+                1 => $agreeing_party
             ]
         );
         $third_opinion = new PoliticalOpinion(
-            $question, [
-                5 => $agreeing_party
+            $this->createQuestionWithAgreeFactor(2), [
+                2 => $agreeing_party
             ]
         );
 
