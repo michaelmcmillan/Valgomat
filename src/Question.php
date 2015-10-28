@@ -39,4 +39,9 @@ class Question
     {
         $this->answer = $answer;
     }
+
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
 }

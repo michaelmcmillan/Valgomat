@@ -19,6 +19,9 @@ class Answer
                 'Importance factor must be from 1 to 3.'
             );
         }
+
+        $this->_agree = $agree;
+        $this->_importance = $importance;
     }
 
     public function getAgreeFactor()
