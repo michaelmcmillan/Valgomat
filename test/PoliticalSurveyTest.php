@@ -1,6 +1,6 @@
 <?php
-use \Valgomat\Election\PoliticalSurvey as PoliticalSurvey;
-use \Valgomat\Election\Electionyear as ElectionYear;
+use \Valgomat\Election\PoliticalSurvey;
+use \Valgomat\Election\Electionyear;
 
 class PoliticalSurveyTest extends PHPUnit_Framework_TestCase
 {
