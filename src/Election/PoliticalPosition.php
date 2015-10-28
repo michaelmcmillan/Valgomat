@@ -11,19 +11,34 @@ class PoliticalPosition
     public function __construct($opinions, $parties)
     {
         $this->_opinions = $opinions;
+        $this->_setInitialScoreToZeroForAllParties($parties);
+        $this->_calculateScores();
+    }
+
+    private function _setInitialScoreToZeroForAllParties($parties)
+    {
         foreach ($parties as $party) {
             $this->_scores[spl_object_hash($party)] = 0;
         }
     }
 
-    public function getScoreFor($party)
+    private function _increaseScoreFor($party)
+    {
+        $this->_scores[spl_object_hash($party)]++;
+    }
+
+    private function _calculateScores()
     {
         foreach ($this->_opinions as $opinion) {
             $agreeing_party = $opinion->leansTowards();
             if ($agreeing_party) {
-                $this->_scores[spl_object_hash($agreeing_party)]++;
+                $this->_increaseScoreFor($agreeing_party);
             }
         }
+    }
+
+    public function getScoreFor($party)
+    {
         return $this->_scores[spl_object_hash($party)];
     }
 }
