@@ -1,13 +1,16 @@
 <?php
 use \Valgomat\Question;
 
-class QuestionTest extends PHPUnit_Framework_TestCase {
+class QuestionTest extends PHPUnit_Framework_TestCase
+{
 
-    public function createAnAnswerMock() {
+    public function createAnAnswerMock() 
+    {
         return $this->getMockBuilder('\Valgomat\Answer')->disableOriginalConstructor()->getMock(); 
     }
 
-    public function testQuestionCapitalizesFirstCharacterOfQuestionText() {
+    public function testQuestionCapitalizesFirstCharacterOfQuestionText() 
+    {
         $question = new Question('hvor mye bryr du deg om miljøet?');
         $this->assertEquals($question->getText()[0], 'H');
     }

@@ -10,7 +10,7 @@ RUNNER_FLAGS=--colors --include-path "./" --bootstrap "vendor/autoload.php" \
 			 --disallow-test-output --enforce-time-limit  
 
 lint:
-	@$(LINTER) $(LINTER_FLAGS) $(CODE) 
+	@$(LINTER) $(LINTER_FLAGS) $(CODE) $(TESTS)
 
 test: lint
 	@$(RUNNER) $(TESTS) $(RUNNER_FLAGS) | $(IGNORE)
