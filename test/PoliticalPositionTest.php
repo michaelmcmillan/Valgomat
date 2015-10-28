@@ -1,10 +1,10 @@
 <?php
 use \Valgomat\Election\PoliticalParty;
-use \Valgomat\Election\PoliticalPosition;
+use \Valgomat\Election\PoliticalOpinion;
 use \Valgomat\Question;
 use \Valgomat\Answer;
 
-class PoliticalPositionTest extends PHPUnit_Framework_TestCase
+class PoliticalOpinionTest extends PHPUnit_Framework_TestCase
 {
 
     public function createQuestionWithFiveAsAgreementFactor()
@@ -31,32 +31,32 @@ class PoliticalPositionTest extends PHPUnit_Framework_TestCase
         return $question;
     }
 
-    public function testPoliticalPositionLeansTowardsPartyThatAgreesAsMuch()
+    public function testPoliticalOpinionLeansTowardsPartyThatAgreesAsMuch()
     {
         $question = $this->createQuestionWithFiveAsAgreementFactor();
         $agreeing_party = new PoliticalParty('Venstre');
-        $position = new PoliticalPosition($question, [5 => $agreeing_party]);
-        $this->assertSame($position->leansTowards(), $agreeing_party);
+        $opinion = new PoliticalOpinion($question, [5 => $agreeing_party]);
+        $this->assertSame($opinion->leansTowards(), $agreeing_party);
     }
 
-    public function testPoliticalPositionLeansTowardsPartyThatDisagreesAsMuch()
+    public function testPoliticalOpinionLeansTowardsPartyThatDisagreesAsMuch()
     {
         $question = $this->createQuestionWithOneAsAgreementFactor();
         $disagreeing_party = new PoliticalParty('Fremskrittspartiet');
-        $position = new PoliticalPosition($question, [1 => $disagreeing_party]);
-        $this->assertSame($position->leansTowards(), $disagreeing_party);
+        $opinion = new PoliticalOpinion($question, [1 => $disagreeing_party]);
+        $this->assertSame($opinion->leansTowards(), $disagreeing_party);
     }
 
-    public function testPoliticalPositionLeansTowardsNoPartyIfNoPartyAgreesAsMuch()
+    public function testPoliticalOpinionLeansTowardsNoPartyIfNoPartyAgreesAsMuch()
     {
         $question = $this->createQuestionWithOneAsAgreementFactor();
-        $position = new PoliticalPosition(
+        $opinion = new PoliticalOpinion(
             $question, [
                 5 => new PoliticalParty('Sosialistisk Venstreparti'),
                 4 => new PoliticalParty('Høyre'),
                 3 => new PoliticalParty('Rødt') 
             ]
         );
-        $this->assertSame($position->leansTowards(), null);
+        $this->assertSame($opinion->leansTowards(), null);
     }
 }

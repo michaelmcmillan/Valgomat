@@ -2,7 +2,7 @@
 namespace Valgomat\Election;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-class PoliticalPosition
+class PoliticalOpinion
 {
 
     private $_question;
