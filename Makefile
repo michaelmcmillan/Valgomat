@@ -6,7 +6,7 @@ LINTER_FLAGS=--standard="${TESTS}/linter_ruleset.xml"
 IGNORE=grep -v 'Sebastian Bergmann'
 RUNNER="${BIN}/phpunit"
 RUNNER_FLAGS=--colors --include-path "./" --bootstrap "vendor/autoload.php" \
-			 --strict-coverage --strict-global-state --disallow-todo-tests  \
+			 --strict-coverage --disallow-todo-tests  \
 			 --disallow-test-output --enforce-time-limit  
 
 lint:
