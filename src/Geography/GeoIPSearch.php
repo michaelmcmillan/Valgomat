@@ -26,6 +26,7 @@ class GeoIPSearch
     public function lookup()
     {
         $this->_record = $this->_reader->city($this->_ip);
+        return $this;
     }
 
     public function getCoordinates()
