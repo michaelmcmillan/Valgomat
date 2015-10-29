@@ -15,6 +15,6 @@ class GeoLocateController extends Controller
             $coordinate->longitude
         );
 
-        echo $municipality;
+        echo json_encode($municipality);
     }
 }

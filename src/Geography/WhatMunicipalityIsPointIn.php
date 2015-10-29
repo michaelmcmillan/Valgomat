@@ -23,8 +23,9 @@ class WhatMunicipalityIsPointIn
             );
 
             if ($position === 'inside' || $position === 'boundary') {
-                $municipality = new County();
-                return $municipality_polygon['name'];
+                $municipality = new Municipality();
+                $municipality->name = trim($municipality_polygon['name']);
+                return $municipality;
             }
         }
         return null;
