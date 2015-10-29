@@ -2,6 +2,8 @@
 <ruleset name="PHP_CodeSniffer">
  <description>The coding standard for PHP_CodeSniffer.</description>
  <exclude-pattern>src/Webserver/public/css</exclude-pattern>
+ <exclude-pattern>src/Geography/PointInPolygon.php</exclude-pattern>
+ 
 
  <rule ref="PEAR">
   <exclude name="PEAR.Commenting.ClassComment"/>
