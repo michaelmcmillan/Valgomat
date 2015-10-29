@@ -2,7 +2,7 @@
 namespace Valgomat;
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class Survey
+class Survey implements \JsonSerializable
 {
 
     private $_questions;
@@ -42,4 +42,12 @@ class Survey
                count($this->getQuestions()) >= $question_index;
     }
 
+    public function jsonSerialize()
+    {
+        return [
+            'survey' => [
+                'election_year' => $this->getElectionYear()
+            ]
+        ];
+    }
 }
