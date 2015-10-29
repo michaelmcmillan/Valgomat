@@ -19,6 +19,6 @@ install:
 	@composer install
 
 serve:
-	@php -S localhost:1337 src/Webserver/index.php
+	@php -S localhost:1337 -t src/Webserver/
 
 .PHONY: test lint install
