@@ -1,0 +1,50 @@
+#container {
+    max-width: 980px;
+    min-height: 550px;
+    margin: 0 auto;
+    padding: 0 70px;
+    background-color: white;
+    border: 5px solid #D60000;
+    overflow: hidden;
+}
+
+button {
+    width: 100%;
+}
+
+.button.green, .button.green:hover {
+    color: #FFFFFF;
+}
+
+.header {
+    margin-top: 50px;
+}
+
+.header .title {
+    font-size: 34px;
+}
+
+.header .subtitle {
+    font-size: 22px;
+}
+
+.gender {
+    display: block;
+}
+
+.gender > .icon {
+    display: block;
+    font-size: 120px;
+    text-align: center;
+    transition: color 300ms ease;
+}
+
+.gender > span {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.female > .icon:hover, .male > .icon:hover {
+    color: #8ABA56;
+}
