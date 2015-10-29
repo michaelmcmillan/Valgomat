@@ -11,5 +11,9 @@ $app->post(
     '/survey/:token/question/:id/answer',
     '\Valgomat\Webserver\Controllers\SurveyController:answer'
 );
+$app->get(
+    '/geolocate',
+    '\Valgomat\Webserver\Controllers\GeoLocateController:find'
+);
 
 $app->run();
