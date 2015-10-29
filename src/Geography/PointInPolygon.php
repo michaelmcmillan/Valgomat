@@ -13,7 +13,10 @@ As long as this notice (including author name and details) is included and
 UNALTERED, this code is licensed under the GNU General Public License version 3:
 http://www.gnu.org/licenses/gpl.html
 */
-class pointLocation {
+namespace Valgomat\Geography;
+require __DIR__ . '/../../vendor/autoload.php';
+
+class PointLocation {
     var $pointOnVertex = true; // Check if the point sits exactly on one of the vertices?
  
     function pointLocation() {
