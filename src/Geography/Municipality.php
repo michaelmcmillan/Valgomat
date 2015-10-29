@@ -1,5 +1,5 @@
 <?php
-namespace Valgomat;
+namespace Valgomat\Geography;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 class Municipality
