@@ -4,6 +4,9 @@ require __DIR__ . '/../../vendor/autoload.php';
 date_default_timezone_set('Europe/Oslo');
 
 $app = new \Slim\Slim();
+
 $app->get('/', '\Valgomat\Webserver\Controllers\IndexController:index');
-$app->get('/api/survey', '\Valgomat\Webserver\Controllers\SurveyController:create');
+$app->get('/survey', '\Valgomat\Webserver\Controllers\SurveyController:create');
+$app->post('/survey/:token/question/:id/answer', '\Valgomat\Webserver\Controllers\SurveyController:answer');
+
 $app->run();
