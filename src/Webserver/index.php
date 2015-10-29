@@ -7,6 +7,9 @@ $app = new \Slim\Slim();
 
 $app->get('/', '\Valgomat\Webserver\Controllers\IndexController:index');
 $app->get('/survey', '\Valgomat\Webserver\Controllers\SurveyController:create');
-$app->post('/survey/:token/question/:id/answer', '\Valgomat\Webserver\Controllers\SurveyController:answer');
+$app->post(
+    '/survey/:token/question/:id/answer',
+    '\Valgomat\Webserver\Controllers\SurveyController:answer'
+);
 
 $app->run();
