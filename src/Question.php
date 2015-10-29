@@ -1,7 +1,7 @@
 <?php
 namespace Valgomat;
 
-class Question
+class Question implements \JsonSerializable
 {
     protected $text;
     protected $answer;
@@ -43,5 +43,10 @@ class Question
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->getText();
     }
 }

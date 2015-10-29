@@ -46,7 +46,7 @@ class Survey implements \JsonSerializable
     {
         return [
             'survey' => [
-                'election_year' => $this->getElectionYear()
+                'questions' => $this->getQuestions()
             ]
         ];
     }

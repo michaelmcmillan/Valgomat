@@ -24,4 +24,11 @@ class PoliticalSurvey extends Survey
     {
         return $this->election_year->getElectionYear();
     }
+
+    public function jsonSerialize()
+    {
+        $json = parent::jsonSerialize();
+        $json['survey']['election_year'] = $this->getElectionYear();
+        return $json;
+    }
 }
