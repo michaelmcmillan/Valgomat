@@ -5,6 +5,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        echo "hello";
+        $this->app->render('index.html');
     }
 }
