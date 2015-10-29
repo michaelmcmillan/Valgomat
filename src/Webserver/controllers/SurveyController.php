@@ -5,6 +5,6 @@ class SurveyController extends Controller
 {
     public function create()
     {
-        $this->app->response->setBody("hello");
+        $this->response->setBody("hello");
     }
 }

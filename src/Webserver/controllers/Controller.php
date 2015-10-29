@@ -7,7 +7,7 @@ class Controller
     public function __construct()
     {
         global $app;
-        $this->app = $app;
+        $this->response = $app ? $app->response : null;
     }
 
 }
