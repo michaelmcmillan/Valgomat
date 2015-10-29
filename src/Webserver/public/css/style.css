@@ -48,3 +48,7 @@ button {
 .female > .icon:hover, .male > .icon:hover {
     color: #8ABA56;
 }
+
+.question.margin {
+    margin-bottom: 30px;
+}
