@@ -9,6 +9,7 @@ class SurveyController extends Controller
     public function create()
     {
         $survey = new PoliticalSurvey();
+        $survey->setElectionYear(2015);
         $questions = [
             new Question('Norge trenger færre skatter.'),
             new Question('Vi trenger mer satsing på nyskapning.'),
