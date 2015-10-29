@@ -18,7 +18,11 @@ class WhatCountyIsPointIn
         $point = $longitude . ' ' . $latitude;
 
         foreach ($this->_county_polygons as $county_polygon) {
-            $position = $this->_point_location->pointInPolygon($point, $county_polygon['points']);
+            $position = $this->_point_location->pointInPolygon(
+                $point,
+                $county_polygon['points']
+            );
+
             if ($position === 'inside' || $position === 'boundary') {
                 return $county_polygon['name'];
             }

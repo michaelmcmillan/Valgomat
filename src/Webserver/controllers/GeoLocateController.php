@@ -10,6 +10,7 @@ class GeoLocateController extends Controller
         $geo = new GeoIPSearch('89.151.214.72', $this->reader);
         $geo->lookup();
         $coordinate = $geo->getCoordinates();
-        echo $this->county_finder->getCounty($coordinate->latitude, $coordinate->longitude);
+        echo $this->county_finder
+            ->getCounty($coordinate->latitude, $coordinate->longitude);
     }
 }
