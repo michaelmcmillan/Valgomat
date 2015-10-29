@@ -1,7 +1,6 @@
 <?php
 namespace Valgomat\Geography;
 require __DIR__ . '/../../vendor/autoload.php';
-use GeoIp2\Database\Reader;
 
 class Coordinate implements \JsonSerializable
 {
