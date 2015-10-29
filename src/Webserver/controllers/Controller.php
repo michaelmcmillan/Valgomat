@@ -7,7 +7,7 @@ class Controller
     public function __construct()
     {
         $this->app = \Slim\Slim::getInstance();
-        $path = __DIR__ . '/../../Geography/GeoLite2-City.mmdb';
+        $path = __DIR__ . '/../../Geography/data/GeoLite2-City.mmdb';
         $this->reader = new \GeoIp2\Database\Reader($path);
     }
 }
