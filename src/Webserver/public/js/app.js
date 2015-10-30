@@ -73,7 +73,9 @@
                 
             disagree.click(function (event) {
                 alert('Her ville jeg implementert en lignende løsning som dere.');
-                nextQuestion();
+                demographicQuestionElements.municipality.fadeOut(function () {
+                    nextQuestion();
+                });
             });
         }
 
